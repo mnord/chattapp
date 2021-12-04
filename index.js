@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const socketio = require('socket.io');
+const { isBooleanObject } = require('util/types');
 
 const app = express();
 const server = http.createServer(app);
@@ -18,6 +19,15 @@ io.on('connection', socket => {
 
     //broadcast when a user connects to all exept the user
     socket.broadcast.emit('message', 'A user has joined the chat');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
+    //Listen for chatMessage
+    socket.on('chatMessage', msg => {
+        io.emit('message', msg);
+    });
+
 });
 
 
