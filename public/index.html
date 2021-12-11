@@ -3,19 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chatt App</title>
+        <title>ChatterApp</title>
         <script defer src="/socket.io/socket.io.js"></script>
         <script defer src="main.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="container">
-            <h1>Chatapp</h1>
-            <div id="messages"></div>
-            <form id="chat-form">
-                <input type="text" id="inputmsg">
-                <button type="submit" id="send-button">Send</button>
-            </form>
+        <div id="chat-container">
+            <header class="chat-header">
+                <h1>ChatterApp</h1>
+            </header>
+            <main class="chat-main">
+                <div class="chat-sidebar">
+                    <h3>Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div id="messages"></div>
+            </main>
+            
+            <div class="form-container">
+                <form id="chat-form">
+                    <input type="text" id="inputmsg" placeholder="Enter message" autocomplete="off">
+                    <button type="submit" id="send-button">Send</button>
+                </form>
+            </div>
+            
         </div>
     </body>
 </html>
