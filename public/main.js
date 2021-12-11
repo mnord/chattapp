@@ -1,15 +1,15 @@
 const chatForm = document.getElementById('chat-form');
-const messages = document.getElementById('messages');
+const chatmessages = document.getElementById('messages');
 
 const socket = io();
 
 //message from server
 socket.on('message', message => {
-    console.log(message);
+    
     outputMessage(message);
 
     //scroll down
-    //messages.scrollTop = messages.scrollHeight;
+    chatmessages.scrollTop = messages.scrollHeight;
 });
 
 //message submit
